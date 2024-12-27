@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище Safina_422Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Match">
+          <Key>
+            <PropertyRef Name="ID_match" />
+          </Key>
+          <Property Name="ID_match" Type="int" Nullable="false" />
+          <Property Name="StartTime" Type="datetime" />
+          <Property Name="EndTime" Type="datetime" />
+          <Property Name="Result" Type="varchar" MaxLength="20" />
+          <Property Name="Duration" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Organizer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" />
+          <Property Name="Login" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Participant">
+          <Key>
+            <PropertyRef Name="ID_participant" />
+          </Key>
+          <Property Name="ID_participant" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Nickname" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Phone" Type="int" Nullable="false" />
+          <Property Name="GameStatistics" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RoleInTeam" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Login" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Standing">
+          <Key>
+            <PropertyRef Name="ID_standing" />
+          </Key>
+          <Property Name="ID_standing" Type="int" Nullable="false" />
+          <Property Name="Points" Type="int" />
+          <Property Name="NumberMatches" Type="int" />
+          <Property Name="ParticipantStatus" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Statistic">
+          <Key>
+            <PropertyRef Name="ID_statistic" />
+          </Key>
+          <Property Name="ID_statistic" Type="int" Nullable="false" />
+          <Property Name="ColMatchesPlayed" Type="int" Nullable="false" />
+          <Property Name="ColWins" Type="int" Nullable="false" />
+          <Property Name="ColDefeats" Type="int" Nullable="false" />
+          <Property Name="PlaceTournament" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="IndividualAchievements" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tournament">
+          <Key>
+            <PropertyRef Name="ID_tournament" />
+          </Key>
+          <Property Name="ID_tournament" Type="int" Nullable="false" />
+          <Property Name="NameTournament" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="Game" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Formats" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NumberParticipants" Type="int" Nullable="false" />
+          <Property Name="PrizePool" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="MinGameRank" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="RegionalRestrictions" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ProhibitedCharactersWeapons" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Хранилище Safina_422ModelContainer">
+          <EntitySet Name="Match" EntityType="Self.Match" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Organizer" EntityType="Self.Organizer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Participant" EntityType="Self.Participant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Standing" EntityType="Self.Standing" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Statistic" EntityType="Self.Statistic" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tournament" EntityType="Self.Tournament" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Safina_422Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Match">
+          <Key>
+            <PropertyRef Name="ID_match" />
+          </Key>
+          <Property Name="ID_match" Type="Int32" Nullable="false" />
+          <Property Name="StartTime" Type="DateTime" Precision="3" />
+          <Property Name="EndTime" Type="DateTime" Precision="3" />
+          <Property Name="Result" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Duration" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Organizer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Login" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Participant">
+          <Key>
+            <PropertyRef Name="ID_participant" />
+          </Key>
+          <Property Name="ID_participant" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nickname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phone" Type="Int32" Nullable="false" />
+          <Property Name="GameStatistics" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RoleInTeam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Standing">
+          <Key>
+            <PropertyRef Name="ID_standing" />
+          </Key>
+          <Property Name="ID_standing" Type="Int32" Nullable="false" />
+          <Property Name="Points" Type="Int32" />
+          <Property Name="NumberMatches" Type="Int32" />
+          <Property Name="ParticipantStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Statistic">
+          <Key>
+            <PropertyRef Name="ID_statistic" />
+          </Key>
+          <Property Name="ID_statistic" Type="Int32" Nullable="false" />
+          <Property Name="ColMatchesPlayed" Type="Int32" Nullable="false" />
+          <Property Name="ColWins" Type="Int32" Nullable="false" />
+          <Property Name="ColDefeats" Type="Int32" Nullable="false" />
+          <Property Name="PlaceTournament" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IndividualAchievements" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tournament">
+          <Key>
+            <PropertyRef Name="ID_tournament" />
+          </Key>
+          <Property Name="ID_tournament" Type="Int32" Nullable="false" />
+          <Property Name="NameTournament" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="Game" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Formats" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NumberParticipants" Type="Int32" Nullable="false" />
+          <Property Name="PrizePool" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MinGameRank" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RegionalRestrictions" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProhibitedCharactersWeapons" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Safina_422Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Match" EntityType="Self.Match" />
+          <EntitySet Name="Organizer" EntityType="Self.Organizer" />
+          <EntitySet Name="Participant" EntityType="Self.Participant" />
+          <EntitySet Name="Standing" EntityType="Self.Standing" />
+          <EntitySet Name="Statistic" EntityType="Self.Statistic" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Tournament" EntityType="Self.Tournament" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Safina_422ModelContainer" CdmEntityContainer="Safina_422Entities1">
+          <EntitySetMapping Name="Match">
+            <EntityTypeMapping TypeName="Safina_422Model.Match">
+              <MappingFragment StoreEntitySet="Match">
+                <ScalarProperty Name="ID_match" ColumnName="ID_match" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Organizer">
+            <EntityTypeMapping TypeName="Safina_422Model.Organizer">
+              <MappingFragment StoreEntitySet="Organizer">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Participant">
+            <EntityTypeMapping TypeName="Safina_422Model.Participant">
+              <MappingFragment StoreEntitySet="Participant">
+                <ScalarProperty Name="ID_participant" ColumnName="ID_participant" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="GameStatistics" ColumnName="GameStatistics" />
+                <ScalarProperty Name="RoleInTeam" ColumnName="RoleInTeam" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Standing">
+            <EntityTypeMapping TypeName="Safina_422Model.Standing">
+              <MappingFragment StoreEntitySet="Standing">
+                <ScalarProperty Name="ID_standing" ColumnName="ID_standing" />
+                <ScalarProperty Name="Points" ColumnName="Points" />
+                <ScalarProperty Name="NumberMatches" ColumnName="NumberMatches" />
+                <ScalarProperty Name="ParticipantStatus" ColumnName="ParticipantStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Statistic">
+            <EntityTypeMapping TypeName="Safina_422Model.Statistic">
+              <MappingFragment StoreEntitySet="Statistic">
+                <ScalarProperty Name="ID_statistic" ColumnName="ID_statistic" />
+                <ScalarProperty Name="ColMatchesPlayed" ColumnName="ColMatchesPlayed" />
+                <ScalarProperty Name="ColWins" ColumnName="ColWins" />
+                <ScalarProperty Name="ColDefeats" ColumnName="ColDefeats" />
+                <ScalarProperty Name="PlaceTournament" ColumnName="PlaceTournament" />
+                <ScalarProperty Name="IndividualAchievements" ColumnName="IndividualAchievements" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Safina_422Model.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tournament">
+            <EntityTypeMapping TypeName="Safina_422Model.Tournament">
+              <MappingFragment StoreEntitySet="Tournament">
+                <ScalarProperty Name="ID_tournament" ColumnName="ID_tournament" />
+                <ScalarProperty Name="NameTournament" ColumnName="NameTournament" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Game" ColumnName="Game" />
+                <ScalarProperty Name="Formats" ColumnName="Formats" />
+                <ScalarProperty Name="NumberParticipants" ColumnName="NumberParticipants" />
+                <ScalarProperty Name="PrizePool" ColumnName="PrizePool" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="MinGameRank" ColumnName="MinGameRank" />
+                <ScalarProperty Name="RegionalRestrictions" ColumnName="RegionalRestrictions" />
+                <ScalarProperty Name="ProhibitedCharactersWeapons" ColumnName="ProhibitedCharactersWeapons" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

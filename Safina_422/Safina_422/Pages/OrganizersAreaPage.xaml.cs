@@ -20,7 +20,7 @@ namespace Safina_422.Pages
     /// </summary>
     public partial class OrganizersAreaPage : Page
     {
-        public OrganizersAreaPage()
+        public OrganizersAreaPage(Components.DB.Organizer organizer)
         {
             InitializeComponent();
         }

@@ -10,8 +10,10 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="7*"/>
             <RowDefinition Height="55*"/>
+            <RowDefinition Height="7*"/>
         </Grid.RowDefinitions>
-        <Rectangle Fill="Beige"/>
+        <Rectangle Grid.Row="0" Fill="Beige"/>
+        <Rectangle Grid.Row="2" Fill="Beige"/>
         <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="Онлайн-турнирная платформа" FontSize="20"/>
         </StackPanel>

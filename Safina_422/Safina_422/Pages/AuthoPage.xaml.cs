@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Safina_422.Components.DB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Policy;
@@ -47,17 +48,18 @@ namespace Safina_422.Pages
             }
             IEnumerable<Organizer> organizers = App.db.Organizer.ToList();
 
-            foreach (var trainer in organizers)
+            foreach (var organizer in organizers)
             {
                 if (organizer.Login == LoginTb.Text)
                 {
                     if (organizer.Password == PasswordBox.Password)
                     {
-                        NavigationService.Navigate(new OrganizersAreaPage(trainer));
+                        NavigationService.Navigate(new OrganizersAreaPage(organizer));
                         break;
                     }
                 }
             }
+
         }
     }
 }

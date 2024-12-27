@@ -16,13 +16,18 @@ using System.Windows.Shapes;
 namespace Safina_422.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для ParticipantsAreaPage.xaml
+    /// Логика взаимодействия для MainPage.xaml
     /// </summary>
-    public partial class ParticipantsAreaPage : Page
+    public partial class MainPage : Page
     {
-        public ParticipantsAreaPage(Components.DB.Participant participant)
+        public MainPage()
         {
             InitializeComponent();
+        }
+
+        private void RegBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new RegistPage());
         }
     }
 }

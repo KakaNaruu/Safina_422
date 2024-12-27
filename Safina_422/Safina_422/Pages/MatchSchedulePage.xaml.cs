@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Safina_422.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для ParticipantsAreaPage.xaml
+    /// Логика взаимодействия для MatchSchedulePage.xaml
     /// </summary>
-    public partial class ParticipantsAreaPage : Page
+    public partial class MatchSchedulePage : Page
     {
-        public ParticipantsAreaPage(Components.DB.Participant participant)
+        public MatchSchedulePage()
         {
             InitializeComponent();
         }

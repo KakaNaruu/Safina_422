@@ -1,0 +1,37 @@
+﻿<Page x:Class="Safina_422.Pages.RegistPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Safina_422.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="RegistPage" Background="White">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Регистрация на турнир" FontSize="20" HorizontalAlignment="Center" Margin="5"/>
+        <StackPanel Grid.Row="1">
+            <ComboBox x:Name="TournamentCB" Width="270" Text="Выберите турнир"/>
+            <TextBox x:Name="TeamNameTB" Width="270" Text="Название команды (если командный турнир)"/>
+            <TextBox x:Name="PlayerRolesTB" Width="270" Text="Предпочитаемые роли (через запятую)"/>
+        </StackPanel>
+        <DataGrid x:Name="ApplicationsDataGrid" Grid.Row="2" Margin="0,10,0,10" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Турнир" Binding="{Binding Tournament}" Width="*"/>
+                <DataGridTextColumn Header="Команда" Binding="{Binding TeamName}" Width="*"/>
+                <DataGridTextColumn Header="Роли" Binding="{Binding PlayerRoles}" Width="*"/>
+                <DataGridTextColumn Header="Статус" Binding="{Binding Status}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Зарегистрироваться"/>
+            <Button Content="Обновить заявки"/>
+        </StackPanel>
+    </Grid>
+</Page>
